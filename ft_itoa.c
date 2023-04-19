@@ -1,42 +1,47 @@
 #include "libft.h"
 
-static int	test(unsigned int j, int i)
+static size_t    ft_len(int n)
 {
-	while (j != 0)
-	{
-		j = j / 10;
-		i++;
-	}
-	return (i);
+    size_t    i;
+
+    i = 0;
+    if (n == 0)
+        return (1);
+    if (n < 0)
+        i++;
+    while (n != 0)
+    {
+        n = n / 10;
+        i++;
+    }
+    return (i);
 }
 
-char	*ft_itoa(int n)
+char    *ft_itoa(int n)
 {
-	int	i;
-	unsigned int	j;
-	char	*res;
-	
-	i = 0;
-	if (n < 0 && i++ == 0)
-		j = n * -1;
-	else
-		j = n;
-	i = test(j, i);
-	if (j == 0)
-		i++;
-	res = malloc(sizeof(char) * i + 1);
-	if (j == 0)
-		res[0] = '0';
-	if (n < 0)
-		res[0] = '-';
-	res[i] = '\0';
-	i--;
-	while (i >= 0 && j > 0)
-	{
-		res[i] = (j % 10) + 48;
-		j = j / 10;
-		i--;
-	}
-	return (res);
+    unsigned int    nbr;
+    long int        len;
+    char            *alpha;
+
+    len = ft_len(n);
+    if (n < 0)
+        nbr = -n;
+    else
+        nbr = n;
+    alpha = malloc(sizeof(char) * len + 1);
+    if (!alpha)
+        return (NULL);
+    if (n == 0)
+        alpha[0] = '0';
+    alpha[len] = '\0';
+    len--;
+    while (nbr)
+    {
+        alpha[len--] = (nbr % 10) + '0';
+        nbr /= 10;
+    }
+    if (n < 0)
+        alpha[0] = '-';
+    return (alpha);
 }
 
