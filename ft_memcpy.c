@@ -12,12 +12,12 @@
 
 #include <stddef.h>
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	size_t	i;
-	char	*destpasta;
+	size_t		i;
+	char		*destpasta;
 	const char	*srcpasta;
-	
+
 	if (dest == (NULL) && src == NULL)
 		return (NULL);
 	i = 0;
@@ -29,5 +29,5 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 		i++;
 	}
 	dest = destpasta;
-	return((void *) dest);
+	return ((void *) dest);
 }

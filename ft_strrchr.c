@@ -12,10 +12,10 @@
 
 #include <string.h>
 
-int ft_strlen_strrchr(const char *p)
+int	ft_strlen_strrchr(const char *p)
 {
 	int	i;
-	
+
 	i = 0;
 	while (p[i])
 	{
@@ -24,14 +24,14 @@ int ft_strlen_strrchr(const char *p)
 	return (i);
 }
 
-char *ft_strrchr(const char *p, int ch)
+char	*ft_strrchr(const char *p, int ch)
 {
-	char c;
-	int count;
+	char	c;
+	int		count;
 
 	c = ch;
 	count = ft_strlen_strrchr(p);
-	while(1)
+	while (1)
 	{
 		if (p[count] == c)
 			return ((char *) p + count);

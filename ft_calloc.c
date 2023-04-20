@@ -14,11 +14,11 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void *result;
-	size_t total_len;
-	
+	void	*result;
+	size_t	total_len;
+
 	total_len = nmemb * size;
 	result = (void *) malloc(total_len);
 	if (result == NULL)

@@ -12,19 +12,18 @@
 
 #include <stddef.h>
 
-char *ft_strchr(const char *p, int ch)
+char	*ft_strchr(const char *p, int ch)
 {
-	char c;
-	int count;
-	
+	char	c;
+	int		count;
+
 	count = 0;
 	c = ch;
-	while(p[count] != c)
+	while (p[count] != c)
 	{
 		if (p[count] == '\0')
-			return(NULL);
+			return (NULL);
 		count++;
 	}
-	return((char *)p + count);
-	
+	return ((char *)p + count);
 }

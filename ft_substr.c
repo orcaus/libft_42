@@ -1,60 +1,36 @@
-#include <stdlib.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: srajaoui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/19 15:38:44 by srajaoui          #+#    #+#             */
+/*   Updated: 2023/04/19 15:38:45 by srajaoui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t	ft_strlen_substr(const char *s)
+#include "libft.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t n)
 {
-	size_t	i;
+	char	*a;
 
-	i = 0;
-	while (s[i])
+	if (ft_strlen(s) < start)
 	{
-		i++;
+		a = malloc(sizeof(char));
+		a[0] = '\0';
+		return (a);
 	}
-	return (i);
-}
-
-size_t	ft_strlcpy_substr(char *dst, const char *src, size_t dstsize)
-{
-	size_t	srclen;
-	size_t	i;
-
-	srclen = ft_strlen_substr(src);
-	if (dstsize == 0)
-	{
-		return (srclen);
-	}
-	i = 0;
-	while (src[i] != '\0' && i < dstsize - 1)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (srclen);
-}
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	s_len;
-	char	*empty_string;
-	char	*new_string;
-
-	if (s == NULL)
-		return (NULL);
-	s_len = ft_strlen_substr(s);
-	if (start >= s_len)
-	{
-		empty_string = (char *)malloc(1 * sizeof(char));
-		if (empty_string == NULL)
-			return (NULL);
-		empty_string[0] = '\0';
-		return (empty_string);
-	}
-	if (ft_strlen_substr(s) - start >= len)
-		new_string = (char *)malloc((len + 1) * sizeof(char));
+	if (ft_strlen(&s[start]) > n)
+		a = malloc(sizeof(char) * n + 1);
 	else
-		new_string = (char *)malloc((ft_strlen_substr(s) - start + 1) * sizeof(char));
-	if (new_string == NULL)
+		a = malloc(sizeof(char) * ft_strlen(&s[start]) + 1);
+	if (!a)
 		return (NULL);
-	ft_strlcpy_substr(new_string, s + start, len + 1);
-	return (new_string);
+	if (ft_strlen(&s[start]) >= n)
+		ft_strlcpy(a, &s[start], n + 1);
+	else if (ft_strlen(&s[start]) < n)
+		ft_strlcpy(a, &s[start], ft_strlen(&s[start]) + 1);
+	return (a);
 }

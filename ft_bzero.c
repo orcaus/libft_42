@@ -12,11 +12,11 @@
 
 #include <stddef.h>
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
 	size_t	i;
 	char	*pasta;
-	
+
 	i = 0;
 	pasta = s;
 	while (i < n)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: srajaoui <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/19 15:34:54 by srajaoui          #+#    #+#             */
+/*   Updated: 2023/04/19 15:34:56 by srajaoui         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putnbr_rtn(unsigned int nbpos, int fd)
@@ -13,7 +25,7 @@ void	ft_putnbr_rtn(unsigned int nbpos, int fd)
 	write(fd, &p, 1);
 }
 
-void ft_putnbr_fd(int nb, int fd)
+void	ft_putnbr_fd(int nb, int fd)
 {
 	unsigned int	nbpos;
 

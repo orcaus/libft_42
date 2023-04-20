@@ -12,11 +12,11 @@
 
 #include <stddef.h>
 
-void *ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, int c, size_t n)
 {
 	size_t	i;
 	char	*pasta;
-	
+
 	i = 0;
 	pasta = s;
 	while (i < n)
@@ -25,6 +25,5 @@ void *ft_memset(void *s, int c, size_t n)
 		i++;
 	}
 	s = pasta;
-	return((void *) s);
+	return ((void *) s);
 }
-
